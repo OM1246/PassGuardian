@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Security Suite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div class="header-content">
+                <h1><i class="fas fa-shield-alt"></i> Password Security Suite</h1>
+                <p>Advanced password analysis and generation for maximum security</p>
+            </div>
+        </header>
+        
+        <main>
+            <div class="dashboard">
+                <section class="analyzer-card card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-search"></i> Password Analyzer</h2>
+                        <p>Check the strength and security of your passwords</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label for="password">Enter your password:</label>
+                            <div class="password-input-container">
+                                <input type="password" id="password" placeholder="Type your password here...">
+                                <button id="toggle-password" class="icon-button" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="strength-section">
+                            <div class="strength-header">
+                                <span>Password Strength</span>
+                                <span id="strength-text" class="strength-score">-</span>
+                            </div>
+                            <div class="meter-container">
+                                <div class="meter-bar">
+                                    <div id="strength-bar" class="bar"></div>
+                                </div>
+                                <div class="strength-labels">
+                                    <span>Weak</span>
+                                    <span>Strong</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="results" id="analysis-results">
+                            <div class="result-grid">
+                                <div class="result-item">
+                                    <div class="result-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="result-content">
+                                        <h3>Estimated Crack Time</h3>
+                                        <p id="crack-time">-</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="result-item">
+                                    <div class="result-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <div class="result-content">
+                                        <h3>Data Breach Check</h3>
+                                        <p id="leak-status">Not checked yet</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="feedback-section">
+                                <h3><i class="fas fa-comment-dots"></i> Security Feedback</h3>
+                                <div class="feedback-content">
+                                    <p id="warning" class="warning-text">-</p>
+                                    <ul id="suggestions"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="generator-card card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-key"></i> Secure Password Generator</h2>
+                        <p>Create cryptographically strong passwords</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="generated-password-container">
+                            <div class="password-display">
+                                <input type="text" id="generated-password" readonly placeholder="Your secure password will appear here">
+                                <button id="copy-password" class="icon-button" aria-label="Copy password">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="generator-controls">
+                                <button id="generate-btn" class="generate-button">
+                                    <i class="fas fa-sync-alt"></i> Generate Password
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="generator-info">
+                            <h3><i class="fas fa-info-circle"></i> About Our Generator</h3>
+                            <p>Our password generator creates cryptographically secure passwords using Python's secrets module, which provides access to the most secure source of randomness available from your operating system.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>Built with <i class="fas fa-heart"></i> for security | Uses zxcvbn and Have I Been Pwned API</p>
+                <p class="tech-info">K-Anonymity Model | SHA-1 Hashing | Real-time Analysis</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
